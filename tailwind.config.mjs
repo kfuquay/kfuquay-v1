@@ -46,6 +46,7 @@ export default {
         black: "#000",
         blackRad: "rgba(0,0,0,0.8)",
         whiteRad: "rgba(242, 242, 242, 0.8)",
+        transparent: "rgba(255, 255, 255, 0)",
       },
     },
   },
