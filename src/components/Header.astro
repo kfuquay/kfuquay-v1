@@ -18,7 +18,12 @@ import "../styles/hamburgers.css";
       <li><Link href="/blog" text="Blog"/></li>
     </ul>
     <div class="md:hidden z-40">
-      <button class="hamburger hamburger--elastic" type="button">
+      <button 
+        class="hamburger hamburger--elastic" 
+        type="button"
+        aria-label="Menu"
+        aria-expanded="false"
+        aria-controls="navigation">
         <span class="hamburger-box">
           <span class="hamburger-inner"></span>
         </span>
@@ -35,15 +40,26 @@ import "../styles/hamburgers.css";
   </nav>
 </header>
 <script is:inline>
-  function init(){
+  function init() {
     const hamburger = document.querySelector(".hamburger");
     const menu = document.getElementById("navigation");
 
     if (hamburger && menu) {
-      hamburger.addEventListener("click", () => {
+      const toggleMenu = () => {
+        const isExpanded = hamburger.getAttribute("aria-expanded") === "true";
+        hamburger.setAttribute("aria-expanded", !isExpanded);
         hamburger.classList.toggle("is-active");
         menu.classList.toggle("-translate-y-full");
         menu.classList.toggle("translate-y-0");
+      };
+
+      hamburger.addEventListener("click", toggleMenu);
+
+      // Handle Escape key
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && hamburger.getAttribute("aria-expanded") === "true") {
+          toggleMenu();
+        }
       });
     }
   }
