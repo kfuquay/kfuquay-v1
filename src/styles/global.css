@@ -75,13 +75,6 @@
     font-style: normal;
 }
 
-@font-face {
-    font-family: 'Kablammo';
-    src: url('/fonts/Kablammo-Regular.woff2') format('woff2'),
-         url('/fonts/Kablammo-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
 body {
     font-family: 'Alexandria', sans-serif;
     background-color: #f2f2f2;
