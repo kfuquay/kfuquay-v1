@@ -4,6 +4,7 @@ import BaseHead from "@/components/BaseHead.astro";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 import FormattedDate from "@/components/FormattedDate.astro";
+import SkipLink from "@/components/SkipLink.astro";
 
 type Props = CollectionEntry<"blog">["data"];
 
@@ -32,8 +33,9 @@ if (!images[heroImage]) throw new Error(`"${heroImage}" does not exist in glob: 
     <BaseHead title={title} description={description} />
   </head>
   <body>
+    <SkipLink />
     <Header />
-    <main class="container mx-auto md:px-10 text-white">
+    <main id="main" class="container mx-auto md:px-10 text-white">
       <article >
         <div class="relative mb-20" transition:animate="fade">
           <span class="bg-black bg-opacity-25 w-full h-full absolute"></span>

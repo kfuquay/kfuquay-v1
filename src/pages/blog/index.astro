@@ -8,6 +8,7 @@ import WhatIDo from "@/components/WhatIDo.astro";
 const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
+import SkipLink from "@/components/SkipLink.astro";
 ---
 
 <!doctype html>
@@ -16,8 +17,9 @@ const posts = (await getCollection("blog")).sort(
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
   <body>
+    <SkipLink />
     <Header />
-    <main class="container mx-auto md:px-10 py-20">
+    <main id="main" class="container mx-auto md:px-10 py-20">
       <WhatIDo />
     </main>
     <Footer />
