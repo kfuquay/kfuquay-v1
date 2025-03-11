@@ -65,7 +65,7 @@ if (!images[heroImage]) throw new Error(`"${heroImage}" does not exist in glob: 
               <slot />
             </div>
             <div class="flex flex-col gap-6" transition:animate="slide">
-              <ul class="flex flex-col gap-2 pt-10 md:pt-0 items-start md:items-end">
+              <ul class="flex flex-col gap-4 pt-10 md:pt-0 items-start md:items-end">
                 <p class="md:hidden font-semibold">Related:</p>
                 {
                   posts.map((post) => {
