@@ -22,9 +22,18 @@ const posts = (await getCollection("blog")).sort(
 );
 
 import type { ImageMetadata } from 'astro';
-import { Image } from 'astro:assets';
+import { Image, getImage } from 'astro:assets';
 const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/*.{jpeg,jpg,png,gif}')
-if (!images[heroImage]) throw new Error(`"${heroImage}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`);
+if (!images[heroImage]) throw new Error(`"${heroImage}" does not exist in glob: "/src/assets/*.{jpeg,jpg,png,gif}"`);
+
+const hero = images[heroImage]();
+
+const blurredPlaceholder = await getImage({
+  src: images[heroImage](),
+  width: 944,
+  height: 384,
+  format: 'webp',
+})
 
 ---
 
@@ -39,13 +48,16 @@ if (!images[heroImage]) throw new Error(`"${heroImage}" does not exist in glob: 
       <article >
         <div class="relative mb-20" transition:animate="fade">
           <span class="bg-black bg-opacity-25 w-full h-full absolute"></span>
-          <div class="absolute bottom-10 md:left-20 left-6">
+          <div class="absolute bottom-10 md:left-20 left-6 z-10 bg-black bg-opacity-10 p-6 rounded-sm ">
             <h1 class="text-4xl md:text-7xl font-semibold line-clamp-2 max-w-[90%]">
               {title}
             </h1>
-            <p  set:html={description} />
+            <p class="text-lg text-white max-w-[90%] mt-4" set:html={description} />
           </div>
-          <Image src={images[heroImage]()}  alt={title} class="h-96 w-full object-cover"/>
+          <div class="relative h-96 w-full">
+            <img src={blurredPlaceholder.src} alt="Blurred placeholder" class="blur-md h-96 w-full object-cover transition:opacity ease-in-out absolute"/>
+            <Image src={hero}  alt={title} id="main-image" class="h-96 w-full object-cover opacity-0 transition-opacity ease-in-out absolute" format="webp" widths={[300, 600, 900]} sizes="(max-width: 900px) 100vw, 900px" />
+          </div>
         </div>
         <div class="text-black px-6 md:px-0">
           <div class="">
@@ -91,3 +103,20 @@ if (!images[heroImage]) throw new Error(`"${heroImage}" does not exist in glob: 
     <Footer />
   </body>
 </html>
+
+<style>
+  #main-image.loaded {
+    opacity: 1;
+  }
+</style>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const mainImage = document.querySelector('#main-image');
+    if (mainImage) {
+      mainImage.addEventListener('load', () => {
+        mainImage.classList.add('loaded');
+      });
+    }
+  });
+</script>
