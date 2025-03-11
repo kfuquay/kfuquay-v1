@@ -1,11 +1,42 @@
-# 🌐 Personal Portfolio
+# kfuquay-v1
 
-Welcome to my personal portfolio demo repository! This project is a demonstration of what a personal portfolio could look like. It showcases various aspects of web development, including my work, skills, and projects.
+_Repository for Kurt's personal portfolio/blog site._
 
-You can view the deployed project at the following URL: [https://astounding-bienenstitch-9b7a58.netlify.app/](https://astounding-bienenstitch-9b7a58.netlify.app/)
-Astro web templates: https://astro.build/themes/details/sorollaportfolio/
+Built with [Astro](https://astro.build/) & [tailwindcss](https://tailwindcss.com/)
 
-## 📂 Project Structure
+Based on [the SorollaPortfolio astro theme](https://astro.build/themes/details/sorollaportfolio/).
+
+---
+
+## Summary
+
+- [Deployment status](#deployment-status)
+- [Local development](#local-development)
+- [Project Structure](#project-structure)
+  - [/src structure](#src-structure)
+
+---
+
+## Deployment status
+
+### main
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/bdae6e69-88ee-4e9d-9d11-06fd30547abe/deploy-status)](https://app.netlify.com/sites/kfuquay/deploys)
+
+[☝️ Back to the summary](#summary)
+
+---
+
+## Local development
+
+- run `npm i` to install dependencies
+- run `npm run dev` to start local server
+
+[☝️ Back to the summary](#summary)
+
+---
+
+## Project Structure
 
 - **public/**: Contains public assets like images and fonts.
 - **src/**: Includes the source code for the portfolio.
@@ -15,17 +46,14 @@ Astro web templates: https://astro.build/themes/details/sorollaportfolio/
 - **tailwind.config.mjs**: Configuration file for Tailwind CSS.
 - **tsconfig.json**: TypeScript configuration file.
 
-
-### 🧭 /src structure
+### /src structure
 
 The `/src` directory contains the main source code for the project. Below is an overview of its structure:
 
-```
+```bash
 src
 ├── assets
-│   ├── adriana.jpg
-│   ├── euro.jpg
-│   ├── fran.jpg
+│   ├── keyboard.jpg
 │   └── hero.png
 ├── components
 │   ├── BaseHead.astro
@@ -34,6 +62,7 @@ src
 │   ├── Header.astro
 │   ├── HeaderLink.astro
 │   ├── Hero.astro
+│   ├── SkipLink.astro
 │   └── WhatIDo.astro
 ├── consts.ts
 ├── content
@@ -41,15 +70,9 @@ src
 │       └── content in markdown format
 ├── content.config.ts
 ├── icons
-│   ├── 1.svg
-│   ├── 2.svg
-│   ├── 3.svg
-│   ├── 4.svg
-│   ├── 5.svg
 │   ├── beach.svg
 │   ├── github.svg
 │   ├── linkedin.svg
-│   ├── paint.svg
 │   └── web.svg
 ├── layouts
 │   └── BlogPost.astro
@@ -83,38 +106,4 @@ src
 
 This structure helps in organizing the project files and makes it easier to maintain and scale the project.
 
-
-## 🚀 Getting Started
-
-To run this project locally:
-
-1. **Clone the repository:**
-
-   ```bash
-   git clone https://github.com/jramma/sorollaportfolio.git
-   cd sorollaportfolio
-   ```
-
-2. **Install dependencies:**
-
-   ```bash
-   bun install
-   ```
-
-3. **Start the development server:**
-
-   ```bash
-   bun dev
-   ```
-
-   The application will be available at `http://localhost:4321`.
-
-## 🛠️ Technologies Used
-
-- **Astro**: A modern static site builder.
-- **Tailwind CSS**: A utility-first CSS framework.
-- **TypeScript**: A statically typed programming language.
-
-## 📄 License
-
-This project is licensed under the [MIT License](LICENSE).
+[☝️ Back to the summary](#summary)

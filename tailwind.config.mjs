@@ -8,20 +8,10 @@ export default {
         card1: "2px 2px #000000",
         card: "4px 4px #000000",
         hover: "10px 10px #000000",
-        pblue: "7px 7px #96C7F2",
-        pgreen: "7px 7px #ADF296",
-        ppink: "7px 7px #F396E5",
-        pblueHover: "10px 10px #96C7F2",
-        pgreenHover: "10px 10px #ADF296",
-        ppinkHover: "10px 10px #F396E5",
-        pyellow: "7px 7px #F2CF96",
+        transparent: "10px 10px #FFFFFF00",
+        pblackHover: "7px 7px #4E6273",
       },
       colors: {
-        pblue: "#96C7F2",
-        pgreen: "#ADF296",
-        ppink: "#F396E5",
-        pyellow: "#F2CF96",
-        ppurlple: "#9D859A",
         pblack: "#4E6273",
         white: {
           DEFAULT: "#F2F2F2",
@@ -30,7 +20,6 @@ export default {
       fontFamily: {
         mono: ["Alexandria", "monospace"],
         sans: ["Alexandria", "sans-serif"],
-        kablamo: ["Kablammo", "serif"],
       },
       maxWidth: {
         "1/12": "8.333333%",
@@ -57,6 +46,7 @@ export default {
         black: "#000",
         blackRad: "rgba(0,0,0,0.8)",
         whiteRad: "rgba(242, 242, 242, 0.8)",
+        transparent: "rgba(255, 255, 255, 0)",
       },
     },
   },

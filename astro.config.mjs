@@ -1,4 +1,5 @@
 // @ts-check
+import astroExpressiveCode from "astro-expressive-code";
 import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
@@ -10,7 +11,15 @@ import netlify from "@astrojs/netlify";
 
 // https://astro.build/config
 export default defineConfig({
-  output:'server',
-  integrations: [mdx(), sitemap(), tailwind(), icon()],
+  output: "server",
+  integrations: [
+    sitemap(),
+    tailwind(),
+    icon(),
+    astroExpressiveCode({
+      themes: ["houston", "min-light"],
+    }),
+    mdx(),
+  ],
   adapter: netlify(),
 });
