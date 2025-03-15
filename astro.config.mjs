@@ -9,6 +9,8 @@ import icon from "astro-icon";
 
 import netlify from "@astrojs/netlify";
 
+import purgecss from "astro-purgecss";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://kfuquay.dev",
@@ -17,14 +19,11 @@ export default defineConfig({
   prefetch: {
     prefetchAll: true,
   },
-  integrations: [
-    sitemap(),
-    tailwind(),
-    icon(),
-    astroExpressiveCode({
-      themes: ["houston", "min-light"],
-    }),
-    mdx(),
-  ],
+  build: {
+    inlineStylesheets: "never",
+  },
+  integrations: [sitemap(), tailwind(), icon(), astroExpressiveCode({
+    themes: ["houston", "min-light"],
+  }), mdx(), purgecss()],
   adapter: netlify(),
 });
