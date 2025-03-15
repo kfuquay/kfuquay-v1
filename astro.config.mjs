@@ -11,6 +11,7 @@ import netlify from "@astrojs/netlify";
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://kfuquay.dev",
   output: "static",
   prefetch: {
     prefetchAll: true,
