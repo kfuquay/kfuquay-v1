@@ -11,7 +11,12 @@ import netlify from "@astrojs/netlify";
 
 // https://astro.build/config
 export default defineConfig({
-  output: "server",
+  site: "https://kfuquay.dev",
+  output: "static",
+  // Prefetch all internal links in browsers which support it
+  prefetch: {
+    prefetchAll: true,
+  },
   integrations: [
     sitemap(),
     tailwind(),

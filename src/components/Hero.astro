@@ -5,16 +5,18 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 );
 ---
 
-<section class="py-20 flex md:flex-row flex-col px-4 md:px-0 gap-10 md:gap-0">
-  <div class="flex flex-col gap-6 justify-start items-start md:w-1/2">
+<section class="py-0 md:py-20 flex md:flex-row flex-col px-4 md:px-0 gap-10 md:gap-0">
+  <div id="heading-container" class="flex flex-col gap-6 justify-center items-start min-h-[calc(100vh-7rem)] md:w-1/2 md:max-h-fit md:min-h-fit md:h-fit" >
     <h1 class="text-pblack">Hi, my name is Kurt Fuquay</h1>
     <p class="text-6xl font-bold">I am a web developer.</p>
-    <p>
-      Currently working as a senior software engineer at Grafton Studio.
+    <p class="text-xl text-pblack">
+      Seasoned full-stack developer who loves to make accessible apps with intuitive UI. Experience working across various JavaScript and Python frameworks. Passionate about building scalable, efficient systems and learning new technologies.
     </p>
   </div>
+
   <div
-    class="md:w-1/2 object-contain flex items-center justify-center p-10 group"
+    class="md:flex md:w-1/2 object-contain items-center justify-center p-10 group self-center md:self-auto"
+    id="hero-image"
   >
     <a
       rel="noopener noreferrer"
@@ -29,12 +31,12 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
             class="object-bottom absolute bottom-0 group-hover:scale-105 transition"
             src={images["/src/assets/hero.png"]()}
             alt="Kurt wearing sunglasses and a beanie, gazing into the distance with a relaxed expression"
-            loading="eager"
+            loading="lazy"
             widths={[300, 600, 900]}
             sizes="(max-width: 900px) 100vw, 900px"
           />
         </div>
-      </div></a
-    >
+      </div>
+    </a>
   </div>
 </section>

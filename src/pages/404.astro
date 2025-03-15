@@ -1,34 +1,27 @@
 ---
-import BaseHead from "@/components/BaseHead.astro";
+import Base from "@/layouts/Base.astro";
 import Footer from "@/components/Footer.astro";
 import Header from "@/components/Header.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import SkipLink from "@/components/SkipLink.astro";
 
 ---
 
-<!doctype html>
-<html lang="en" class="motion-safe:scroll-smooth">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  </head>
-  <body class="p-0 m-0 max-w-screen">
-    <SkipLink />
-    <Header />
-    <main id="main" id="main" class="container mx-auto md:px-10 flex flex-col items-center gap-4 min-h-[50vh] justify-center">
-      <h1 class="text-4xl font-bold">404</h1>
-      <section class="my-8">
-      <div class="space-content container flex flex-col items-center gap-4">
-        <p class="text-pblack">This page does not exist.</p>
-        <div
-        class="text-nowrap gap-4 -bottom-12 right-0 pr-4 bg-pgreen pl-1 z-10 shadow-card1 group-hover:shadow-card transition rounded-full border-3 border-black hover:shadow-hover w-auto inline-block"
-      >
-        <a href="/">Let's get you home</a>
-      </div>
-        
-      </div>
-      </section>
-    </main>
-    <Footer />
-  </body>
-</html>
+<Base>
+  <SkipLink />
+  <Header />
+  <main id="main" id="main" class="container mx-auto md:px-10 flex flex-col items-center gap-4 min-h-[50vh] justify-center">
+    <h1 class="text-4xl font-bold">404</h1>
+    <section class="my-8">
+    <div class="space-content container flex flex-col items-center gap-4">
+      <p class="text-pblack">This page does not exist.</p>
+      <div
+      class="text-nowrap gap-4 -bottom-12 right-0 pr-4 pl-4 z-10 shadow-card1 group-hover:shadow-card transition rounded-full border-3 border-black hover:shadow-hover w-auto inline-block"
+    >
+      <a href="/">Let's get you home</a>
+    </div>
+      
+    </div>
+    </section>
+  </main>
+  <Footer />
+</Base>
