@@ -53,7 +53,7 @@ const blurredPlaceholder = await getImage({
         </div>
         <div class="relative h-96 w-full">
           <img src={blurredPlaceholder.src} alt="Blurred placeholder" class="blur-md h-96 w-full object-cover transition:opacity ease-in-out absolute"/>
-          <Image src={hero}  alt={title} id="main-image" class="h-96 w-full object-cover opacity-0 transition-opacity ease-in-out absolute" format="webp" widths={[300, 600, 900]} sizes="(max-width: 900px) 100vw, 900px" loading="eager" />
+          <Image src={hero}  alt={title} id="main-image" class="h-96 w-full object-cover opacity-0 transition-opacity ease-in-out absolute" format="webp" widths={[300, 600, 900]} sizes="(max-width: 900px) 100vw, 900px" loading="lazy" />
         </div>
       </div>
       <div class="text-black px-6 md:px-0">
