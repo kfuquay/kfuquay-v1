@@ -5,13 +5,17 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 );
 ---
 
-<section class="py-20 flex md:flex-row flex-col px-4 md:px-0 gap-10 md:gap-0">
-  <div class="flex flex-col gap-6 justify-start items-start md:w-1/2">
+<section class="py-0 md:py-20 flex md:flex-row flex-col px-4 md:px-0 gap-10 md:gap-0">
+  <div id="heading-container" class="flex flex-col gap-6 justify-center items-start min-h-[calc(100vh-10rem)] md:w-1/2 md:max-h-fit md:min-h-fit md:h-fit" >
     <h1 class="text-pblack">Hi, my name is Kurt Fuquay</h1>
     <p class="text-6xl font-bold">I am a web developer.</p>
+    <p class="text-xl text-pblack">
+      Seasoned full-stack developer who loves to make accessible apps with intuitive UI. Experience working across various JavaScript and Python frameworks. Passionate about building scalable, efficient systems and learning new technologies.
+    </p>
   </div>
+
   <div
-    class="md:flex md:w-1/2 object-contain items-center justify-center p-10 group"
+    class="md:flex md:w-1/2 object-contain items-center justify-center p-10 group self-center md:self-auto"
     id="hero-image"
   >
     <a
@@ -32,7 +36,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
             sizes="(max-width: 900px) 100vw, 900px"
           />
         </div>
-      </div></a
-    >
+      </div>
+    </a>
   </div>
 </section>
