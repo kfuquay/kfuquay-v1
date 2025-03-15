@@ -1,23 +1,16 @@
 ---
-import BaseHead from "@/components/BaseHead.astro";
+import Base from "@/layouts/Base.astro";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 import WhatIDo from "@/components/WhatIDo.astro";
 import SkipLink from "@/components/SkipLink.astro";
 ---
 
-<!doctype html>
-<html lang="en" class="motion-safe:scroll-smooth">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  </head>
-  <body>
-    <SkipLink />
-    <Header />
-    <main id="main" class="container mx-auto md:px-10 py-20">
-      <WhatIDo />
-    </main>
-    <Footer />
-  </body>
-</html>
+<Base>
+  <SkipLink />
+  <Header />
+  <main id="main" class="container mx-auto md:px-10 py-20">
+    <WhatIDo />
+  </main>
+  <Footer />
+</Base>
