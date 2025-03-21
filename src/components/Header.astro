@@ -1,68 +1,25 @@
 ---
-import Link from "./HeaderLink.astro";
-import "../styles/hamburgers.css";
+import Nav from './Nav.astro'
+
+const { current = '' } = Astro.props;
 ---
 
-<header class="h-[7rem] max-h-[7rem] md:max-h-fit md:min-h-fit md:h-fit">
-  <nav
-    class="flex container mx-auto md:p-10 px-4 py-6 items-center justify-between"
-  >
-    <a class="flex items-center gap-2" href="/">
-      <p class="pt-2 md:text-lg font-semibold flex">
-        K<span class="hidden md:block">urt</span>Fuquay
-      </p>
-    </a>
-    <ul class="items-center md:gap-8 text-nowrap hidden md:flex">
-      <li><Link href="/" text="Home"/></li>
-      <li><Link href="/about" text="About" /></li>
-      <li><Link href="/blog" text="Blog"/></li>
-    </ul>
-    <div class="md:hidden z-40">
-      <button 
-        class="hamburger hamburger--elastic" 
-        type="button"
-        aria-label="Menu"
-        aria-expanded="false"
-        aria-controls="navigation">
-        <span class="hamburger-box">
-          <span class="hamburger-inner"></span>
-        </span>
-      </button>
+<style>
+  header {
+    display: flex;
+    margin: 0 auto;
+    max-width: 1400px;
+    padding: 2em;
+    width: 100%;
+  }
 
-      <div id="navigation" class="fixed top-0 left-0 w-full h-full bg-white transform -translate-y-full transition-transform duration-300 ease-in-out">
-        <ul class="flex flex-col items-center justify-center h-full gap-8 text-nowrap">
-          <li><Link href="/" text="Home" /></li>
-          <li><Link href="/about" text="About"/></li>
-          <li><Link href="/blog" text="Blog"/></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-</header>
-<script is:inline>
-  function init() {
-    const hamburger = document.querySelector(".hamburger");
-    const menu = document.getElementById("navigation");
-
-    if (hamburger && menu) {
-      const toggleMenu = () => {
-        const isExpanded = hamburger.getAttribute("aria-expanded") === "true";
-        hamburger.setAttribute("aria-expanded", !isExpanded);
-        hamburger.classList.toggle("is-active");
-        menu.classList.toggle("-translate-y-full");
-        menu.classList.toggle("translate-y-0");
-      };
-
-      hamburger.addEventListener("click", toggleMenu);
-
-      // Handle Escape key
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && hamburger.getAttribute("aria-expanded") === "true") {
-          toggleMenu();
-        }
-      });
+  @media screen and (max-width: 520px) {
+    header {
+      padding: 2em 0;
     }
   }
-  init();
-  document.addEventListener("astro:after-swap", init);
-</script>
+</style>
+
+<header>
+  <Nav current={current} />
+</header>

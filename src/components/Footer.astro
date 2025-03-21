@@ -1,27 +1,19 @@
----
-const today = new Date();
-import { Icon } from "astro-icon/components";
----
-
-<footer
-  class="flex flex-col items-center container mx-auto p-10 text-center gap-10 pb-40"
->
-  &copy; {today.getFullYear()} Kurt Fuquay. All rights reserved.
-  <div class="flex items-center gap-6 text-5xl">
-    <a
-      href="https://github.com/kfuquay"
-      target="_blank"
-      class="border-1 p-1 border-black rounded-full shadow-card hover:shadow-hover transition"
-    >
-      <Icon name="github" title="GitHub"/>
-    </a>
-    <a
-      href="https://www.linkedin.com/in/kurt-fuquay/"
-      target="_blank"
-      class="border-1 p-1 border-black rounded-full shadow-card hover:shadow-hover transition"
-
-    >
-      <Icon name="linkedin" title="LinkedIn"/>
-    </a>
-  </div>
+<footer>
+  <span>
+    &copy; {new Date().getFullYear()} Kurt Fuquay.
+    Powered by <a href="https://astro.build" target="_blank" rel="noopener">Astro</a>.
+    Template by <a href="https://www.twitter.com/Charca" target="_blank" rel="noopener">Maxi Ferreira</a>.
+  </span>
 </footer>
+
+<style>
+  footer {
+    color: var(--text-secondary);
+    font-size: .8em;
+    margin: 1em auto;
+    max-width: 1400px;
+    padding: 1em 2em;
+    text-align: center;
+    width: 100%;
+  }
+</style>

@@ -1,31 +1,60 @@
 ---
-import Layout from '@/layouts/BlogPost.astro';
-const tags = ['astro', 'react', 'web-components', 'next.js', 'software architecture'];
-const description = `
-  <p class="text-left">
-    Photo by <a href="https://unsplash.com/@jay_zhang?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Jay Zhang</a> on <a href="https://unsplash.com/photos/white-green-and-blue-computer-keyboard-ZByWaPXD2fU?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
-  </p>
-`;
+import { Image } from "astro:assets";
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+import imageOfMe from '../../public/assets/hero.png';
+
+const title = 'About';
+const description = 'About your blog.';
+const permalink = `${Astro.site.href}about`;
 ---
 
-<Layout
-	tags={tags}
-	icon="beach"
-	title="About Me"
-	description= {description}
-	pubDate={new Date('March 11, 2025')}
-	heroImage="/src/assets/keyboard.jpg"
->
-	<p> 
-		I'm a full-stack developer focused on building fast, accessible, and standards-compliant web applications. I specialize in modern frameworks like Next.js, React, Astro, and web components, alongside backend technologies like Fastify, Express, and Flask. I also have a strong background in relational databases (MySQL, PostgreSQL) and love designing scalable, efficient systems. 
-	</p>
-	
-	<p> 
-		I'm always learning—whether it's diving into new frameworks, optimizing performance, or refining best practices. Accessibility and inclusive design are big priorities for me, and I’m always looking for ways to build better experiences for all users. Outside of tech, I love picking up new skills, whether that’s through books, classes (I'm learning Sean-nós dancing at the minute), tinkering, or just good conversations with others.
-	</p>
+<BaseLayout title={title} description={description} permalink={permalink} current="about">
+  <div class="container">
+    <h1>About</h1>
+    <figure class="about-image">
+      <Image 
+        src={imageOfMe} 
+        alt="Kurt wearing sunglasses and a beanie, gazing into the distance with a relaxed expression" 
+        loading="lazy"
+        widths={[300, 600, 900]}
+        sizes="(max-width: 900px) 100vw, 900px" 
+        class="image-border" />
+    </figure>
+    <p> 
+      Hey there! I’m Kurt, a full-stack web developer who enjoys building accessible, user-friendly applications and exploring new technologies. This blog is mostly about tech—things I’m learning, experimenting with, or just find interesting.
+    </p>
 
-	<p> 
-		Beyond coding, I’m a devoted Ipswich Town supporter (COYB!), a regular runner, and a book nerd with a soft spot for literary fiction, sci-fi, and the occasional biography. I also love gaming—both video and board—and hanging out with my dog, Penny. 
-	</p> 
+    <p>
+      Outside of coding, I have a few hobbies that keep me busy. I enjoy doing puzzles, am learning Sean-nós dancing, and love making pottery (with varying degrees of success). I’m also a devoted Ipswich Town supporter, a frequent runner, and the proud human of Penny, my dog.
+    </p>
 
-</Layout>
+    <p>
+      I used to tinker a lot with microcontrollers and Raspberry Pis—though it’s been a while -  my collection is gathering dust. Maybe this blog will inspire me to dive back in 🤷
+    </p>
+  </div>
+</BaseLayout>
+
+<style>
+  .about-image {
+    float: right;
+    margin: -3em -7em 2em 2em;
+    max-width: 300px;
+  }
+
+  .about-image img {
+    border-radius: 8px;
+    margin-bottom: 1.5em;
+  }
+
+  .image-border {
+    border:solid 4px var(--primary-color);
+  }
+
+  @media (max-width: 1020px) {
+    .about-image {
+      float: none;
+      margin: 0 auto 2em;
+    }
+  }
+</style>

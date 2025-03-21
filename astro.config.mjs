@@ -1,30 +1,26 @@
-// @ts-check
-import astroExpressiveCode from "astro-expressive-code";
-import { defineConfig } from "astro/config";
-import mdx from "@astrojs/mdx";
-import sitemap from "@astrojs/sitemap";
-import tailwind from "@astrojs/tailwind";
-
-import icon from "astro-icon";
-
-import netlify from "@astrojs/netlify";
+import { defineConfig } from 'astro/config'
+import svelte from '@astrojs/svelte'
+import mdx from '@astrojs/mdx'
+import remarkGfm from 'remark-gfm'
+import remarkSmartypants from 'remark-smartypants'
+import rehypeExternalLinks from 'rehype-external-links'
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://kfuquay.dev",
-  output: "static",
-  // Prefetch all internal links in browsers which support it
-  prefetch: {
-    prefetchAll: true,
+  site: 'https://astro-blog-template.netlify.app',
+  integrations: [mdx(), svelte()],
+  markdown: {
+    shikiConfig: {
+      theme: 'nord',
+    },
+    remarkPlugins: [remarkGfm, remarkSmartypants],
+    rehypePlugins: [
+      [
+        rehypeExternalLinks,
+        {
+          target: '_blank',
+        },
+      ],
+    ],
   },
-  integrations: [
-    sitemap(),
-    tailwind(),
-    icon(),
-    astroExpressiveCode({
-      themes: ["houston", "min-light"],
-    }),
-    mdx(),
-  ],
-  adapter: netlify(),
-});
+})
