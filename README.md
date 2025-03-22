@@ -19,9 +19,7 @@ Based on [the SorollaPortfolio astro theme](https://astro.build/themes/details/s
 
 ## Deployment status
 
-### main
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/bdae6e69-88ee-4e9d-9d11-06fd30547abe/deploy-status)](https://app.netlify.com/sites/kfuquay/deploys)
+_Not Deployed_
 
 [☝️ Back to the summary](#summary)
 
